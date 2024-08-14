@@ -1,0 +1,217 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 30px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.header {
+    background-color: #7e9e45;
+    color: antiquewhite;
+    text-align: center;
+    padding: 1em;
+}
+
+.header span{
+    font-weight: 800;
+}
+
+.title1 {
+    margin-bottom: 10px;
+}
+
+.circle1, .circle2, .circle3 {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.main {
+    text-align: center;
+    padding: 20px;
+}
+
+.text1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.text2 {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+/*---------------------textboxes---------------*/
+
+.textbox-container {
+    display: flex;
+    font-size: 32px;
+    justify-content: space-between; /* Distribute items with equal space between them */
+    padding: 1.5% 3.6%;
+
+}
+
+.textbox1 textarea{
+    width: 100%;
+    font-size: 14px; /* Set the font size as desired */
+    text-align: left; /* Align the text to the left */
+    font-family: 'Arial', sans-serif;
+}
+
+
+input[type=file]::file-selector-button {
+    padding: .2em .4em;
+    border-radius: 4px;
+    background-color: #7e9e45;
+    border-color: #7e9e45;
+    color: antiquewhite;
+    transition: 0.3s;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #5d7537;
+    cursor: pointer;
+}
+
+.textbox1 button{
+    background-color: #7e9e45;
+    border-color: #7e9e45;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+.textbox1 button:hover{
+    background-color: #5d7537;
+    cursor: pointer;
+}
+
+
+.textbox2{
+    width: 40%;
+    height: 200px;
+}
+
+.textbox2 textarea {
+    width: 100%;
+    height: 200px; /* Set the initial height as desired */
+    font-size: 14px; /* Set the font size as desired */
+    text-align: left; /* Align the text to the left */
+    font-family: 'Arial', sans-serif;
+}
+
+.textbox2 button{
+    background-color: #7e9e45;
+    border-color: #7e9e45;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.textbox2 button:hover{
+    background-color: #5d7537;
+    cursor: pointer;
+}
+
+.textbox3 textarea {
+    width: 100%;
+    height: 200px; /* Set the initial height as desired */
+    font-size: 14px; /* Set the font size as desired */
+    text-align: left; /* Align the text to the left */
+    font-family: 'Arial', sans-serif;
+}
+
+.textbox3 button{
+    background-color: #7e9e45;
+    border-color: #7e9e45;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.textbox3 button:hover{
+    background-color: #5d7537;
+    cursor: pointer;
+}
+
+
+.textbox {
+    width: 100%;
+    height: 200px;
+    justify-content: space-between;
+    flex: 1; /* Allow textboxes to take equal width */
+}
+
+
+
+
+/*------------------transcription--------------*/
+
+
+.transcription{
+    font-weight: 750;
+    display: flex;
+    color: #7e9e45;
+    font-size: 32px;
+    justify-content: space-between; /* Distribute items with equal space between them */
+    padding: 1.5% 3.6%
+}
+
+.output{
+    justify-content: space-between;
+    padding: 0.6% 3.6%;
+}
+
+
+
+.output textarea{
+    color: black;
+    width: 80%;
+    height: 300px;
+    font-size: 14px; /* Set the font size as desired */
+    text-align: left; /* Align the text to the left */
+    font-family: 'Arial', sans-serif;
+}
+
+.copy-button{
+    justify-content: space-between;
+    padding: 1.5% 5.5%;
+}
+
+.copy-button button{
+    background-color: #7e9e45;
+    border-color: #7e9e45;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.copy-button button:hover{
+    background-color: #5d7537;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.extra-space{
+    padding-bottom: 100px;
+}
+
