@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ECHO note</title>
+   <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="header">
+   <h1 class="title1"><span>EchoNote:</span> <i>an easier way to take notes</i></h1>
+   <div class="circle1"></div>
+   <div class="circle2"></div>
+   <div class="circle3"></div>
+</div>
+
+
+<div class="main">
+   <div class="text1">Upload an audio file, text file, or record your own audio and have notes instantly created by cutting edge AI models</div>
+   <div class="text2"onclick="">Get started</div>
+
+
+</div>
+
+
+<!-----------------textboxes------------>
+<div class="textbox-container">
+
+
+    <div class="textbox1">
+         <form action="/upload" method="POST" enctype="multipart/form-data">
+            <textarea type="text"  class="textbox" placeholder="Click on 'Choose file' below and upload an mp3 file. Upload speeds are based on audio length." readonly></textarea>
+            <br>
+            <div class="choose-file">
+                <input
+                    type="file"
+                    id="audioFileInput"
+                    accept=".mp3"
+                    name="audioFileInput"
+                />
+                <button type="submit">Upload</button>
+            </div>
+         </form>
+    </div>
+
+
+    <div class="textbox2" id="transcriptionTextbox">
+        
+            <textarea id = "transcribeTextBox" type="text" name="transcript" placeholder="Paste a transcript into this textbox for detailed notes"></textarea>
+            <br>
+            <button type="submit" onclick="run(transcribeTextBox.value)">Get Notes</button>
+        
+        <button id="secondCopy" onclick="copyOutput('transcribeTextBox', 'secondCopy')">Copy to clipboard</button>
+        <button onclick="printDiv('transcribeTextBox')">Print or Save as PDF</button>
+   </div>
+
+
+    <div class="textbox3">
+        
+            <textarea name="transcriptVoice" id="resultTextbox" placeholder="Click the 'Start' button and record any speaking. When the speaking is finished, click 'Stop' and all words will show up in this textbox. To get a summarized version, paste the transcript into the textbox to the left." readonly></textarea>
+            <br>
+            <button type="submit" onclick="run(resultTextbox.value)">Get Notes</button>
+        
+
+        <button id="start-button" onclick="startRecognition()" >Start</button>
+        <button id="stop-button" onclick="stopRecognition()">Stop (refresh to record again)</button>
+    </div>
+
+
+</div>
+
+
+
+<script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+<script type="module">
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+ 
+ 
+    // Fetch your API_KEY
+    const API_KEY = key;
+ 
+ 
+    // Access your API key (see "Set up your API key" above)
+    const genAI = new GoogleGenerativeAI(API_KEY);
+ 
+ 
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+ 
+ 
+    async function run(string) {
+  const prompt = "Summerize the following text by using bullet points " + string 
+ 
+ 
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = await response.text();
+  console.log(text);
+  var textbox = document.getElementById("outputBox");
+  textbox.value = text;
+
+  return text;
+ }
+ 
+ 
+
+ window.run = run;
+ </script>
+<!-----------------finished transcript------------>
+
+
+<div class="transcription">
+   <p>
+       Finished Notes <small>(refresh to get a new set of notes)</small>
+   </p>
+</div>
+
+
+<div class="output">
+   <textarea id="outputBox" placeholder="Your summarized notes will be outputted here"></textarea>
+</div>
+
+
+<div class="extra-space">
+</div>
+
+
+<!------------------------------------------------>
+<script src="../static/script.js"></script>
+</body>
+</html>
